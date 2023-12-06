@@ -48,5 +48,4 @@ public class UsuarioCaracteristicaService {
     public Long count(){
         return usuarioCaracteristicaRepository.count();
     }
-    
 }

@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.luiszamorano.backendsimpleredes.entity.Usuario;
+import com.luiszamorano.backendsimpleredes.exceptions.exception.UsuarioNoEncontradoException;
+import com.luiszamorano.backendsimpleredes.exceptions.exception.UsuariosNoEncontradosException;
 import com.luiszamorano.backendsimpleredes.repository.UsuarioRepository;
 
 @Service
@@ -16,11 +18,19 @@ public class UsuarioService {
     private UsuarioRepository usuarioRepository;
 
     public List<Usuario> findAll(){
-        return usuarioRepository.findAll();
+        List<Usuario> usuarios = usuarioRepository.findAll();
+        if(usuarios.size() == 0){
+            throw new UsuariosNoEncontradosException("No hay usuarios");
+        }
+        return usuarios;
     }
 
-    public Optional<Usuario> findById(UUID id){
-        return usuarioRepository.findById(id);
+    public Usuario findById(UUID id){
+        Optional<Usuario> posibleUsuario = usuarioRepository.findById(id);
+        if(!posibleUsuario.isPresent()){
+            throw new UsuarioNoEncontradoException("Usuario no encontrado con ese 'uuid'");
+        }
+        return posibleUsuario.get();
     }
 
     public Boolean existsById(UUID id){
