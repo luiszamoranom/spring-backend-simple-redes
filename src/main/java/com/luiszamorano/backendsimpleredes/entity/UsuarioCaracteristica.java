@@ -1,6 +1,6 @@
-package com.luiszamorano.backendsimpleredes.model;
+package com.luiszamorano.backendsimpleredes.entity;
 
-import com.luiszamorano.backendsimpleredes.model.id.UsuarioCaracteristicaId;
+import com.luiszamorano.backendsimpleredes.entity.id.UsuarioCaracteristicaId;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;

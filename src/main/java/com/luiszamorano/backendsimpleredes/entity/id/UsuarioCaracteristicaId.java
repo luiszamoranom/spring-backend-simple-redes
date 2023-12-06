@@ -1,4 +1,4 @@
-package com.luiszamorano.backendsimpleredes.model.pk;
+package com.luiszamorano.backendsimpleredes.entity.id;
 
 import java.util.UUID;
 
