@@ -22,7 +22,7 @@ public class UsuarioController {
         return usuarioService.findAll();
     }
 
-    @PostMapping("/buscar_por_uuid") 
+    @GetMapping("/buscar_por_uuid") 
     public Usuario findByUUID(@RequestBody UsuarioFindByUUIDDTO usuarioDTO){
         return usuarioService.findById(usuarioDTO.getUuid());
     }

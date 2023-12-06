@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.luiszamorano.backendsimpleredes.entity.Usuario;
 import com.luiszamorano.backendsimpleredes.exceptions.exception.UsuarioNoEncontradoException;
+import com.luiszamorano.backendsimpleredes.exceptions.exception.UsuarioYaExisteException;
 import com.luiszamorano.backendsimpleredes.exceptions.exception.UsuariosNoEncontradosException;
 import com.luiszamorano.backendsimpleredes.repository.UsuarioRepository;
 
@@ -64,4 +65,13 @@ public class UsuarioService {
     public Long count(){
         return usuarioRepository.count();
     }
+
+    public void save(UUID id, String nombres, String apellidos, Boolean habilitado, Boolean esHombre){
+        if(existsById(id)){
+            throw new UsuarioYaExisteException("No se puede registrar ya que existe un usuario con ese 'uuid'");
+        }
+        Usuario nuevoUsuario = new Usuario(id, nombres, apellidos, habilitado, esHombre);
+        usuarioRepository.save(nuevoUsuario);
+    }
+
 }
