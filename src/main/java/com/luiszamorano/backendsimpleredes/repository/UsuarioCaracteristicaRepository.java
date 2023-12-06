@@ -8,8 +8,8 @@ import com.luiszamorano.backendsimpleredes.entity.UsuarioCaracteristica;
 import com.luiszamorano.backendsimpleredes.entity.id.UsuarioCaracteristicaId;
 
 public interface UsuarioCaracteristicaRepository extends JpaRepository<UsuarioCaracteristica,UsuarioCaracteristicaId>{
-    List<UsuarioCaracteristicaRepository> findByUsuario(Usuario usuario);
-    List<UsuarioCaracteristicaRepository> findByCaracteristica(Caracteristica caracteristica);
+    List<UsuarioCaracteristica> findByUsuario(Usuario usuario);
+    List<UsuarioCaracteristica> findByCaracteristica(Caracteristica caracteristica);
     Boolean existsByUsuario(Usuario usuario);
     Boolean existsByCaracteristica(Caracteristica caracteristica);
 }
