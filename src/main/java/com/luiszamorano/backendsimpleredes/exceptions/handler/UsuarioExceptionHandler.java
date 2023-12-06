@@ -10,8 +10,8 @@ import com.luiszamorano.backendsimpleredes.exceptions.exception.UsuariosNoEncont
 @RestControllerAdvice
 public class UsuarioExceptionHandler {
     @ExceptionHandler(UsuariosNoEncontradosException.class)
-    public ResponseEntity<String> handleUsuariosNoEncontradosException(UsuariosNoEncontradosException ex) {
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(ex.getMessage());
+    public ResponseEntity<Void> handleUsuariosNoEncontradosException() {
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
     @ExceptionHandler(UsuarioNoEncontradoException.class)

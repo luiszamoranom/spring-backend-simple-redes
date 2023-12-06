@@ -30,6 +30,12 @@ public class Usuario {
     @Column(nullable = false)
     private String apellidos;
 
+    @Column(nullable = false)
+    private Boolean habilitado = true;
+
+    @Column(nullable = false)
+    private Boolean esHombre;
+
     @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
     List<UsuarioCaracteristica> usuarioCaracteristicas;
 }

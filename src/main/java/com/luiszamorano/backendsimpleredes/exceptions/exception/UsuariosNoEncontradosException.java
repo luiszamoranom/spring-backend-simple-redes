@@ -1,7 +1,7 @@
 package com.luiszamorano.backendsimpleredes.exceptions.exception;
 
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
 public class UsuariosNoEncontradosException extends RuntimeException{
-    public UsuariosNoEncontradosException(String message){
-        super(message);
-    }
 }

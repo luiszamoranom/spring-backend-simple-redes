@@ -20,7 +20,7 @@ public class UsuarioService {
     public List<Usuario> findAll(){
         List<Usuario> usuarios = usuarioRepository.findAll();
         if(usuarios.size() == 0){
-            throw new UsuariosNoEncontradosException("No hay usuarios");
+            throw new UsuariosNoEncontradosException();
         }
         return usuarios;
     }
@@ -31,6 +31,30 @@ public class UsuarioService {
             throw new UsuarioNoEncontradoException("Usuario no encontrado con ese 'uuid'");
         }
         return posibleUsuario.get();
+    }
+
+    public List<Usuario> findByHabilitado(Boolean habilitado){
+        List<Usuario> usuarios = usuarioRepository.findByHabilitado(habilitado);
+        if(usuarios.size() == 0){
+            throw new UsuariosNoEncontradosException();
+        }
+        return usuarios;
+    }
+
+    public List<Usuario> findByEsHombre(Boolean esHombre){
+        List<Usuario> usuarios = usuarioRepository.findByEsHombre(esHombre);
+        if(usuarios.size() == 0){
+            throw new UsuariosNoEncontradosException();
+        }
+        return usuarios;
+    }
+
+    public List<Usuario> findByHabilitadoAndEsHombre(Boolean habilitado, Boolean esHombre){
+        List<Usuario> usuarios = usuarioRepository.findByHabilitadoAndEsHombre(habilitado, esHombre);
+        if(usuarios.size() == 0){
+            throw new UsuariosNoEncontradosException();
+        }
+        return usuarios;
     }
 
     public Boolean existsById(UUID id){
